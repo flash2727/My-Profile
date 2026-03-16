@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Tumpal Jeremiaston</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="menu-toggle" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <div class="profile-section">
+                <img src="Profile.jpg" alt="Profile" class="profile-img">
+                <h3>Tumpal Jeremiaston</h3>
+                <div class="social-icons">
+                    <i class="fab fa-tiktok"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-github"></i>
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Tentang Saya</a></li>
+                <li><a href="#experience">Pengalaman</a></li>
+                <li><a href="#education">Pendidikan</a></li>
+                <li><a href="#resume">Cv/Resume</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            
+            <section id="home" class="section">
+                <div class="hero-text">
+                    <h1>Hi, <span class="intro">Perkenalkan</span></h1>
+                    <h2>Saya <span class="highlight">Tumpal Jeremiaston Lumban Gaol</span></h2>
+                    <div class="uni-info">
+                        <img src="LOGO-UNRI.png" alt="UNRI Logo" class="unri-logo">
+                        <div class="uni-text">
+                            <p>Mahasiswa Universitas Riau</p>
+                            <p>Ilmu Komputer 24</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="section">
+                <div class="about-container">
+                    <div class="photo-gallery">
+                        <div class="photo-card arch"> <img src="photo1.jpg" alt="Foto 1"> </div>
+                        <div class="photo-card hex"> <img src="photo2.jpg" alt="Foto 2"> </div>
+                        <div class="photo-card wide"> <img src="photo3.jpg" alt="Foto 3"> </div>
+                    </div>
+                    <div class="about-text">
+                        <h1>Tentang Saya</h1>
+                        <p>Saya adalah seorang pembelajar yang haus akan pengetahuan, dengan semangat untuk berbagi dan menjadikan teknologi lebih mudah diakses.</p>
+                        <h3>Filosofi</h3>
+                        <p>Menjadi yang terbaik tidak harus nomor 1 tapi berusaha penuh akan semua harapan dan mimpi dalam diri.</p>
+                        <p class="quote"><em>Sebab bagi Allah tidak ada yang mustahil. Lukas 1:37 (TB)</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="section">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="dot"></div>
+                        <div class="content">
+                            <h3>SMA Negeri 1 Pasir Penyu.</h3>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="dot"></div>
+                        <div class="content">
+                            <h3>Pt Sumber Alfaria Trijaya Tbk.</h3>
+                            <p class="job">Crew Store</p>
+                            <p class="desc">Mengelola barang dan harga dalam toko.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="dot"></div>
+                        <div class="content">
+                            <h3>Universitas Riau.</h3>
+                            <p class="job">Mahasiswa</p>
+                            <p class="desc">Fokus pada pengembangan perangkat lunak.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const sidebar = document.getElementById('sidebar');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        // Klik menu langsung tutup sidebar di HP
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

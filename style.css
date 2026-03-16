@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #38b6ff; /* Warna biru background */
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    align-items: flex-start; 
+}
+
+/* SIDEBAR STYLES */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #8e8e8e; /* Warna abu-abu sidebar */
+    padding: 40px 20px;
+    position: fixed;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.profile-section {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.profile-img {
+    width: 100px; /* Atur lebar */
+    height: 100px; /* TAMBAHKAN TINGGI YANG SAMA DENGAN LEBAR */
+    border-radius: 50%; /* Membuat jadi lingkaran sempurna */
+    background: #4cc9f0; /* Warna dasar jika gambar tidak muat */
+    
+    /* TAMBAHKAN INI UNTUK MEMASTIKAN GAMBAR TIDAK GEPENG */
+    object-fit: cover; /* Memotong gambar secara proporsional agar pas di kotak */
+    object-position: center; /* Menengahkan gambar saat dipotong */
+    
+    border: 3px solid white; /* Menambahkan garis tepi putih agar lebih mirip */
+    margin-bottom: 10px;
+}
+
+.social-icons i {
+    font-size: 20px;
+    margin: 10px 5px;
+    cursor: pointer;
+}
+
+.nav-links {
+    list-style: none;
+    text-align: center;
+}
+
+.nav-links li {
+    padding: 15px 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* MAIN CONTENT STYLES */
+.main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #38b6ff;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    color: #000;
+}
+
+.highlight {
+    color: #ffde59; /* Warna kuning nama */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.uni-info {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.unri-logo {
+    width: 80px;
+    margin-right: 20px;
+}
+
+.uni-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* RESPONSIVE & MOBILE MENU */
+.menu-toggle {
+    display: none; /* Sembunyi di desktop */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    z-index: 1100;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .sidebar {
+        left: -250px; /* Sembunyi ke kiri di layar HP */
+    }
+
+    .sidebar.active {
+        left: 0; /* Muncul saat tombol diklik */
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .uni-info {
+        flex-direction: column;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    
+    /* Container Umum untuk Section */
+.section {
+    width: 100%; 
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    padding: 80px 50px;
+    box-sizing: border-box;
+}
+
+/* --- STYLES TENTANG SAYA --- */
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.photo-card {
+    background: #ccc;
+    overflow: hidden;
+    border: 5px solid #d1d1d1;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Bentuk Melengkung (Atas) */
+.arch {
+    grid-row: span 2;
+    border-radius: 150px 150px 0 0;
+}
+
+/* Bentuk Segi Enam Sederhana */
+.hex {
+    clip-path: polygon(0% 15%, 100% 0%, 100% 85%, 0% 100%);
+}
+
+/* Bentuk Lebar (Bawah) */
+.wide {
+    grid-column: span 2;
+    height: 150px;
+    border-radius: 30px;
+}
+
+.about-text h1 { font-size: 3rem; margin-bottom: 20px; }
+.about-text h3 { margin-top: 20px; }
+
+/* --- STYLES PENGALAMAN (TIMELINE) --- */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin-left: 50px;
+    padding-left: 40px;
+    border-left: 4px solid black; /* Garis vertikal hitam */
+}
+
+/* Panah di bawah garis */
+.timeline::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: -12px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid black;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.dot {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: black;
+    border-radius: 50%;
+    left: -55px; /* Menempatkan tepat di garis */
+    top: 0;
+}
+
+.timeline-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline {
+        margin-left: 20px;
+    }
+}
+}
