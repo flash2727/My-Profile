@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div class="menu-toggle" id="mobile-menu">
+    <div class="menu-toggle" id="menu-btn">
         <i class="fas fa-bars"></i>
     </div>
 
@@ -34,8 +34,7 @@
             </ul>
         </nav>
 
-        <main class="main-content">
-            
+        <main class="main-content" id="main-content">
             <section id="home" class="section">
                 <div class="hero-text">
                     <h1>Hi, <span class="intro">Perkenalkan</span></h1>
@@ -89,26 +88,38 @@
                             <h3>Universitas Riau.</h3>
                             <p class="job">Mahasiswa</p>
                             <p class="desc">Fokus pada pengembangan perangkat lunak.</p>
+                            <p class="job">Duta FMIPA 2024</p>
+                            <p class="desc">Membantu dalam promosi fakultas kepada dunia luar.</p>
+                            <p class="job">Himalkom FMIPA Universitas Riau</p>
+                            <p class="desc">Aktif dalam kegiatan organisasi terutama di jurusan Ilmu Komputer.</p>
+                            <p class="job">PANWAS Pemira FMIPA Universitas Riau</p>
+                            <p class="desc">Fokus pada pengembangan perangkat lunak.</p>
+                            <p class="job">Mahasiswa</p>
+                            <p class="desc">Fokus pada pengembangan perangkat lunak.</p>
                         </div>
                     </div>
                 </div>
             </section>
-
         </main>
     </div>
 
     <script>
-        const menuToggle = document.getElementById('mobile-menu');
+        const menuBtn = document.getElementById('menu-btn');
         const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
 
-        menuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
         });
 
-        // Klik menu langsung tutup sidebar di HP
+        // Menutup sidebar otomatis saat link diklik (khusus tampilan mobile)
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
-                sidebar.classList.remove('active');
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('collapsed');
+                    mainContent.classList.remove('expanded');
+                }
             });
         });
     </script>
