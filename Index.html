@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
 
     <div class="menu-toggle" id="menu-btn">
@@ -18,20 +20,28 @@
             <div class="profile-section">
                 <img src="Profile.jpg" alt="Profile" class="profile-img">
                 <h3>Tumpal Jeremiaston</h3>
+                <p class="role-text">Computer Science @ UNRI</p>
                 <div class="social-icons">
-                    <i class="fab fa-tiktok"></i>
-                    <i class="fab fa-instagram"></i>
-                    <i class="fab fa-github"></i>
-                    <i class="fab fa-linkedin"></i>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
+
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">Tentang Saya</a></li>
-                <li><a href="#experience">Pengalaman</a></li>
-                <li><a href="#education">Pendidikan</a></li>
-                <li><a href="#resume">Cv/Resume</a></li>
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="#projects"><i class="fas fa-laptop-code"></i> Projects</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
+
+            <div class="cv-container">
+                <a href="#" class="download-btn"><i class="fas fa-file-download"></i> Download CV</a>
+            </div>
         </nav>
 
         <main class="main-content" id="main-content">
@@ -58,10 +68,43 @@
                     </div>
                     <div class="about-text">
                         <h1>Tentang Saya</h1>
-                        <p>Saya adalah seorang pembelajar yang haus akan pengetahuan, dengan semangat untuk berbagi dan menjadikan teknologi lebih mudah diakses.</p>
+                        <p>Saya adalah seorang pembelajar yang haus akan pengetahuan, dengan semangat untuk berbagi dan
+                            menjadikan teknologi lebih mudah diakses.</p>
                         <h3>Filosofi</h3>
-                        <p>Menjadi yang terbaik tidak harus nomor 1 tapi berusaha penuh akan semua harapan dan mimpi dalam diri.</p>
+                        <p>Menjadi yang terbaik tidak harus nomor 1 tapi berusaha penuh akan semua harapan dan mimpi
+                            dalam diri.</p>
                         <p class="quote"><em>Sebab bagi Allah tidak ada yang mustahil. Lukas 1:37 (TB)</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education" class="section">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="dot"></div>
+                        <div class="content">
+                            <h3>SMA Negeri 1 Pasir Penyu.</h3>
+                            <p class="job">Siswa</p>
+                            <p class="desc">Mengelola barang dan harga dalam toko.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="section">
+                <h1 class="section-title">Tech Skills</h1>
+                <div class="skills-grid">
+                    <div class="skill-card"><i class="fab fa-html5"></i>
+                        <p>HTML</p>
+                    </div>
+                    <div class="skill-card"><i class="fab fa-css3-alt"></i>
+                        <p>CSS</p>
+                    </div>
+                    <div class="skill-card"><i class="fab fa-js"></i>
+                        <p>JavaScript</p>
+                    </div>
+                    <div class="skill-card"><i class="fab fa-python"></i>
+                        <p>Python</p>
                     </div>
                 </div>
             </section>
@@ -72,6 +115,8 @@
                         <div class="dot"></div>
                         <div class="content">
                             <h3>SMA Negeri 1 Pasir Penyu.</h3>
+                            <p class="job">Siswa</p>
+                            <p class="desc">Mengelola barang dan harga dalam toko.</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -94,10 +139,24 @@
                             <p class="desc">Aktif dalam kegiatan organisasi terutama di jurusan Ilmu Komputer.</p>
                             <p class="job">PANWAS Pemira FMIPA Universitas Riau</p>
                             <p class="desc">Fokus pada pengembangan perangkat lunak.</p>
-                            <p class="job">Mahasiswa</p>
-                            <p class="desc">Fokus pada pengembangan perangkat lunak.</p>
+
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section id="projects" class="section">
+                <h1 class="section-title">My Projects</h1>
+                <div class="project-container">
+                    <p>Project sedang dalam pengembangan. Stay tuned!</p>
+                </div>
+            </section>
+
+            <section id="contact" class="section">
+                <h1 class="section-title">Hubungi Saya</h1>
+                <div class="contact-card">
+                    <p><i class="fas fa-envelope"></i> email@mahasiswa.unri.ac.id</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Pekanbaru, Riau</p>
                 </div>
             </section>
         </main>
@@ -124,4 +183,5 @@
         });
     </script>
 </body>
+
 </html>
