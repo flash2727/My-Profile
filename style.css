@@ -6,25 +6,30 @@
 }
 
 body {
-    background-color: #38b6ff; /* Warna biru background */
+    background-color: #38b6ff;
+    overflow-x: hidden;
 }
 
 .container {
     display: flex;
     width: 100%;
-    min-height: 100vh;
-    align-items: flex-start; 
 }
 
-/* SIDEBAR STYLES */
+/* --- SIDEBAR STYLES --- */
 .sidebar {
     width: 250px;
     height: 100vh;
-    background-color: #8e8e8e; /* Warna abu-abu sidebar */
+    background-color: #8e8e8e;
     padding: 40px 20px;
     position: fixed;
-    transition: all 0.3s ease;
+    left: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 1000;
+}
+
+/* Class saat sidebar disembunyikan */
+.sidebar.collapsed {
+    left: -250px;
 }
 
 .profile-section {
@@ -34,16 +39,11 @@ body {
 }
 
 .profile-img {
-    width: 100px; /* Atur lebar */
-    height: 100px; /* TAMBAHKAN TINGGI YANG SAMA DENGAN LEBAR */
-    border-radius: 50%; /* Membuat jadi lingkaran sempurna */
-    background: #4cc9f0; /* Warna dasar jika gambar tidak muat */
-    
-    /* TAMBAHKAN INI UNTUK MEMASTIKAN GAMBAR TIDAK GEPENG */
-    object-fit: cover; /* Memotong gambar secara proporsional agar pas di kotak */
-    object-position: center; /* Menengahkan gambar saat dipotong */
-    
-    border: 3px solid white; /* Menambahkan garis tepi putih agar lebih mirip */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
     margin-bottom: 10px;
 }
 
@@ -73,14 +73,18 @@ body {
     color: white;
 }
 
-/* MAIN CONTENT STYLES */
+/* --- MAIN CONTENT STYLES --- */
 .main-content {
-    margin-left: 250px;
-    width: calc(100% - 250px);
-    display: flex;
-    flex-direction: column;
+    margin-left: 250px; /* Jarak awal sebesar lebar sidebar */
+    width: 100%;
     min-height: 100vh;
-    background-color: #38b6ff;
+    transition: all 0.4s ease;
+    padding: 20px;
+}
+
+/* Class saat main content memenuhi layar */
+.main-content.expanded {
+    margin-left: 0;
 }
 
 .hero-text h1 {
@@ -89,7 +93,7 @@ body {
 }
 
 .highlight {
-    color: #ffde59; /* Warna kuning nama */
+    color: #ffde59;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
@@ -109,56 +113,36 @@ body {
     font-weight: bold;
 }
 
-/* RESPONSIVE & MOBILE MENU */
+/* --- MENU TOGGLE BUTTON --- */
 .menu-toggle {
-    display: none; /* Sembunyi di desktop */
+    display: block; /* Selalu muncul */
     position: fixed;
     top: 20px;
     right: 20px;
     font-size: 30px;
     z-index: 1100;
     cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    .sidebar {
-        left: -250px; /* Sembunyi ke kiri di layar HP */
-    }
-
-    .sidebar.active {
-        left: 0; /* Muncul saat tombol diklik */
-    }
-
-    .main-content {
-        margin-left: 0;
-        padding: 20px;
-        text-align: center;
-    }
-
-    .uni-info {
-        flex-direction: column;
-    }
-
-    .hero-text h1 {
-        font-size: 2rem;
-    }
-    
-    /* Container Umum untuk Section */
-.section {
-    width: 100%; 
-    min-height: 100vh; 
+    background: #1a1a1a;
+    color: white;
+    width: 50px;
+    height: 50px;
     display: flex;
-    flex-direction: column; 
-    justify-content: center; 
-    padding: 80px 50px;
-    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* --- STYLES TENTANG SAYA --- */
+/* --- SECTION STYLES --- */
+.section {
+    padding: 80px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* --- TENTANG SAYA --- */
 .about-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -168,7 +152,10 @@ body {
 
 .photo-gallery {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* Tetap 2 kolom */
+    grid-template-columns: 1fr 1fr; 
+    /* Tentukan tinggi baris agar rapi, misal baris 1 & 2 tingginya sama */
+    grid-template-rows: 200px 200px auto; 
     gap: 15px;
 }
 
@@ -176,45 +163,42 @@ body {
     background: #ccc;
     overflow: hidden;
     border: 5px solid #d1d1d1;
+    width: 100%; /* Pastikan memenuhi grid cell */
+    height: 100%; /* Pastikan memenuhi grid cell */
 }
 
-.photo-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.photo-card img { width: 100%; height: 100%; object-fit: cover; }
+
+/* --- PERUBAHAN DI SINI --- */
+.arch { 
+    /* Hapus grid-row: span 2; */
+    grid-column: 1; /* Paksa di kolom 1 */
+    grid-row: 1;    /* Paksa di baris 1 */
+    border-radius: 150px 150px 0 0; 
 }
 
-/* Bentuk Melengkung (Atas) */
-.arch {
-    grid-row: span 2;
-    border-radius: 150px 150px 0 0;
+.hex { 
+    grid-column: 1; /* Paksa di kolom 1 */
+    grid-row: 2;    /* Paksa di baris 2 (di bawah arch) */
+    clip-path: polygon(0% 15%, 100% 0%, 100% 85%, 0% 100%); 
 }
 
-/* Bentuk Segi Enam Sederhana */
-.hex {
-    clip-path: polygon(0% 15%, 100% 0%, 100% 85%, 0% 100%);
+.wide { 
+    grid-column: span 2; /* Tetap penuhi 2 kolom */
+    grid-row: 1;       /* Di baris ke 3 */
+    height: 415px; 
+    border-radius: 30px; 
 }
 
-/* Bentuk Lebar (Bawah) */
-.wide {
-    grid-column: span 2;
-    height: 150px;
-    border-radius: 30px;
-}
-
-.about-text h1 { font-size: 3rem; margin-bottom: 20px; }
-.about-text h3 { margin-top: 20px; }
-
-/* --- STYLES PENGALAMAN (TIMELINE) --- */
+/* --- TIMELINE --- */
 .timeline {
     position: relative;
     max-width: 800px;
     margin-left: 50px;
     padding-left: 40px;
-    border-left: 4px solid black; /* Garis vertikal hitam */
+    border-left: 4px solid black;
 }
 
-/* Panah di bawah garis */
 .timeline::after {
     content: '';
     position: absolute;
@@ -225,34 +209,41 @@ body {
     border-top: 15px solid black;
 }
 
-.timeline-item {
-    position: relative;
-    margin-bottom: 50px;
-}
-
+.timeline-item { position: relative; margin-bottom: 50px; }
 .dot {
     position: absolute;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     background-color: black;
     border-radius: 50%;
-    left: -55px; /* Menempatkan tepat di garis */
-    top: 0;
+    left: -52px;
+    top: 5px;
 }
 
-.timeline-item h3 {
-    font-size: 1.8rem;
-    margin-bottom: 5px;
+/*--- PENGALAMAN ---*/
+.job {
+    font-weight: bold;
 }
 
-/* Responsif untuk HP */
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-    .about-container {
-        grid-template-columns: 1fr;
+    .main-content {
+        margin-left: 0; /* Default mobile tidak ada margin */
+        padding: 20px;
+        text-align: center;
     }
-    
-    .timeline {
-        margin-left: 20px;
+
+    /* Di mobile, sidebar default-nya sembunyi */
+    .sidebar {
+        left: -250px;
     }
-}
+
+    /* Munculkan sidebar di mobile saat di-toggle */
+    .sidebar.collapsed {
+        left: 0;
+    }
+
+    .about-container { grid-template-columns: 1fr; }
+    .uni-info { flex-direction: column; }
+    .hero-text h1 { font-size: 2.2rem; }
 }
